@@ -39,9 +39,8 @@ if (isset($_SESSION['user_id']))
    
 </head>
 <body>
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
           <a class="navbar-brand" href="#">Navbar</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -67,18 +66,19 @@ if (isset($_SESSION['user_id']))
               </ul>
             </div>
           </div>
-           <p id="utilisateur">bienvenu   <?php
+          <p id="utilisateur">bienvenu   <?php
            
            
            if (isset( $_SESSION['pseudoData']))
-
-           {
-
-             echo  $_SESSION['pseudoData'];   
-
-           }?> </p> 
            
-      </nav> 
+           {
+             
+             echo  $_SESSION['pseudoData'];   
+             
+            }?> </p> 
+           
+          </nav> 
+          <img style="width: 100%; height:400px;" src="img/background.jpg" alt="">
                       <H1>Welcome to My site</H1> 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.5.3/dist/js/bootstrap.min.js"></script>
 </body>
