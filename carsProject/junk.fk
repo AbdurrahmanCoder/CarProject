@@ -1,0 +1,82 @@
+<?php
+ 
+
+try{
+
+
+    $pdo = new PDO("mysql:host=localhost;dbname=mabdd",'root');
+    $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+    $pdostat = $pdo->query("SELECT * FROM vehicules "); 
+    $pdostat->setFetchMode(PDO::FETCH_ASSOC) ;
+    foreach ($pdostat as $ligne) {
+
+    echo "<p>" . $ligne['immatriculation']."\n" .  $ligne['marque'] . "\n" . $ligne['modele'] . "\n" . $ligne['couleur'] ;?>
+
+
+}
+
+catch(Exception $e){
+
+echo "<p>ERREur :".$e->getMessage(); 
+}
+?>
+<html>
+
+<body> 
+    <?php   foreach ($pdostat as $ligne) {
+        ?>
+    
+    <table border="1">
+
+    <?php 
+    echo "<p>" . $ligne['immatriculation']."\n" .  $ligne['marque'] . "\n" . $ligne['modele'] . "\n" . $ligne['couleur'] ;?>
+ 
+  </table> 
+
+
+<?php
+}
+?>
+
+
+</body>
+
+
+
+
+</html>*
+
+//////
+
+
+
+<?php
+ 
+
+try{
+
+
+    $pdo = new PDO("mysql:host=localhost;dbname=mabdd",'root');
+    $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+    $pdostat = $pdo->query("SELECT * FROM vehicules "); 
+    $pdostat->setFetchMode(PDO::FETCH_ASSOC) ;
+    foreach ($pdostat as $ligne) {
+
+     echo "<p>" . $ligne['immatriculation']."\n" .  $ligne['marque'] . "\n" . $ligne['modele'] . "\n" . $ligne['couleur'] ;
+    }
+    
+
+     
+}
+
+catch(Exception $e){
+
+echo "<p>ERREur :".$e->getMessage(); 
+}
+
+?>
+
+
+
+
+////
