@@ -1,0 +1,332 @@
+<?php
+
+  include("Navbar.php");
+  ?>
+
+<?php
+// Include the necessary files (connection.php and any other required files)
+include("connection.php");
+
+ 
+if (!isAdmin()) { 
+    header("Location: login.php");  
+    exit();
+}
+ 
+else {
+   
+?>
+
+
+
+
+<?php
+include('vehicleGetData.php');
+class DataInsert extends DataRetrieve
+{
+  public function __construct($pdo)
+  {
+    parent::__construct($pdo);
+  }
+
+  public function insertItem($marque, $kilometrage, $tarif, $photo)
+  {
+
+
+    if (empty($photo)) {
+      header("Location:index.php?message=er");
+    }
+    // Obtenir le nom de l'image sans l'extension
+    $file_basename = pathinfo($_FILES["image_file"]["name"], PATHINFO_FILENAME);
+    // Renommer l'image en y ajoutant le nom de base et la date et l'heure
+    $file_extension = pathinfo($_FILES["image_file"]["name"], PATHINFO_EXTENSION);
+    $new_image_name = $file_basename . '_' . date("Ymd_His") . '.' . $file_extension;
+
+
+    $target_directory = "imgRental/";
+    $target_path = $target_directory . $new_image_name;
+    if (!move_uploaded_file($photo, $target_path)) {
+      // header("Location:index.php?message=er");
+    }
+    $sql = "INSERT INTO voiture (marque, kilometrage, tarif, photo) VALUES (:marque, :kilometrage, :tarif, :photo)";
+    $stmt = $this->db->prepare($sql);
+
+    // Bind parameters
+    $stmt->bindParam(':marque', $marque);
+    $stmt->bindParam(':kilometrage', $kilometrage);
+    $stmt->bindParam(':tarif', $tarif);
+    $stmt->bindParam(':photo', $new_image_name);
+    // Execute the query
+    $stmt->execute();
+    // Check for success
+    if ($stmt->rowCount() > 0) {
+      return true; // Insertion successful
+    } else {
+      return false; // Insertion failed
+    }
+  }
+}
+// Usage
+// $dataInsert = new DataInsert($pdo);
+
+// // Example usage to insert a new item
+// if ($dataInsert->insertItem("Toyota", 50000, 25000, "toyota.jpg")) {
+//     echo "Item inserted successfully!";
+// } else {
+//     echo "Failed to insert item.";
+// }
+
+
+
+$dataInsert = new DataInsert($pdo);
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $photoimg = $_FILES["image_file"]["tmp_name"];
+    $marque = $_POST["marque"];
+    $kilometrage = $_POST["kilometrage"];
+    $tarif = $_POST["tarif"];
+
+    // Assuming $dataInsert->insertItem() function expects these parameters
+    if ($dataInsert->insertItem($marque, $kilometrage, $tarif, $photoimg)) {
+        echo "Item inserted successfully!";
+    } else {
+        echo "Failed to insert item.";
+    }
+}
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+  
+  <div class="container">
+    <div class="links">
+
+      <a href="?id=addCar">addCar</a>
+
+      <a href="?id=deleteCar">deleteCar</a>
+
+      <a href="?id=modify">modify </a>
+
+    </div>
+
+
+
+    </nav>
+    <?php
+    $id = isset($_GET["id"]) ? $_GET["id"] : "addCar";
+    ?>
+    <?php
+
+    if ($id === "addCar") { ?>
+
+
+      <div class="container mt-5">
+        <h2>Formulaire de Voiture</h2>
+        <form action="" method="post"  enctype="multipart/form-data"> 
+ 
+          
+          <div class = "mb-3">
+            <label for="marque" class="form-label">Marque</label>
+            <input type="text" class="form-control" id="marque" name="marque" required>
+          </div>
+
+          <!-- Kilométrage -->
+          <div class="mb-3">
+            <label for="kilometrage" class="form-label">Kilométrage</label>
+            <input type="number" class="form-control" id="kilometrage" name="kilometrage" required>
+          </div>
+
+          <!-- Tarif -->
+          <div class="mb-3">
+            <label for="tarif" class="form-label">Tarif</label>
+            <input type="number" class="form-control" id="tarif" name="tarif" required>
+          </div>
+
+          <!-- Photo -->
+          <div class="mb-3">
+            <label for="images" class="drop-container" id="dropcontainer">
+              <span class="drop-title">Déposez les fichiers ici</span>
+              ou
+              <input type="file" name="image_file" id="images" accept="image/*" required>
+            </label>
+
+          </div>
+
+          <button type="submit" id="">Enregister </button>
+        </form>
+      </div> 
+ 
+
+
+      <?php
+    } else if ($id === "modify") {
+      ?>
+
+
+        <h1>welcome</h1>
+
+
+
+    <?php } else { ?>
+
+
+
+        <h1>hEllo </h1>
+
+
+    <?php } ?>
+
+
+
+
+
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>
+<?php } ?>
+
+<style>
+  input[type=file] {
+    width: 350px;
+    max-width: 100%;
+    color: #444;
+    padding: 5px;
+    background: #fff;
+    border-radius: 3px;
+    border: 1px solid #555;
+  }
+
+
+  input[type=file]::file-selector-button {
+    margin-right: 20px;
+    border: none;
+    background: #0066ff;
+    padding: 15px 20px;
+    border-radius: 3px;
+    color: #fff;
+    cursor: pointer;
+    transition: background .2s ease-in-out;
+  }
+
+
+  input[type=file]::file-selector-button:hover {
+    background: #000;
+  }
+
+
+  button {
+    margin-top: 20PX;
+    width: 100%;
+    background-color: #0066ff;
+    color: #FFF;
+    border: 0;
+    padding: 15PX;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+  form {
+    width: 50%;
+
+  }
+
+
+  .links {
+
+    margin-bottom: 120px;
+  }
+
+  .links a {
+    font-size: large;
+    padding-left: 20px;
+    margin-bottom: 220px;
+  }
+
+  /* The alert message box */
+</style>
+
+
+
+
+
+
+
+
+<?php if(UserLogged()): ?> 
+    <?php    echo  "<i class='fa-solid fa-angle-down downarrow'>"."</i>" ;    ?> 
+      <?php endif; ?>  
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ////
+
+
+
+      <?php  ?>
+
+
+
+
+<div class="VehiculeSelected">
+
+
+<?php if (!empty($_GET)) {
+    if (isset($_GET['CarId'])) { ?> 
+<p> <?php  echo $_GET['CarId']; ?> </p>
+<p><?php      echo $_GET['CarMarque'];?></p>
+<p>  <?php  echo $_GET['CarTarif'];  ?> </p>
+
+
+       
+ 
+<?php } }else{ ?>
+
+
+<p>you have not selected the car  </p> 
+
+    <?php } ?>
+  -->
+
+
+
+      ///
+
+      datas = >" 
+
+      <?php  ?>
+ 
+<div class="VehiculeSelected">
+
+
+<?php if (!empty($_GET)) {
+    if (isset($_GET['CarId'])) { ?> 
+<p> <?php  echo $_GET['CarId']; ?> </p>
+<p><?php      echo $_GET['CarMarque'];?></p>
+<p>  <?php  echo $_GET['CarTarif'];  ?> </p>
+
+
+       
+ 
+<?php } }else{ ?>
+
+
+<p>you have not selected the car  </p> 
+
+    <?php } ?>" 
+ 

@@ -2,42 +2,43 @@
 include("connection.php");
 session_start(); // Start a new or resume the existing session
 
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
     $password = $_POST['password'];
-
-    // Validate user input (e.g., check for empty fields)
-
-    // Prepare and execute the SQL query
+   
     $sql = "SELECT * FROM membre WHERE email = :email";
     $stmt = $pdo->prepare($sql);
     $stmt->execute(['email' => $email]);
-    $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
+    $user = $stmt->fetch(PDO::FETCH_ASSOC); 
     if ($user) {
         $emailDb = $user["email"];
         $mdpDb = $user["mdp"];
         $pseudoData = $user['pseudo'];
-        if ($email == $emailDb && $password == $mdpDb) {
+        $statut = $user['statut'];
+ 
+        if ($email == $emailDb && password_verify($password,$mdpDb)) {
             // Authentication successful
-            $_SESSION['user_id'] = $user['id']; // Store user ID in the session
-            $_SESSION['email'] = $emailDb; // Store email in the session
-            $_SESSION['pseudoData'] = $pseudoData; // Store email in the session
-            header('location:index.php');       
-    
-        } else {
+            $_SESSION['user_id'] = $user['id']; 
+            $_SESSION['email'] = $emailDb;  
+            $_SESSION['membre'] = $user;
+            $_SESSION['pseudoData'] = $pseudoData;  
+            header('location:index.php');         
+        }   
+
+        
+        else {
             // Authentication failed
             echo "Error: Incorrect email or password";
             $error ="Error: Incorrect email or password";
 
         }
     } else {
-        // User not found
+        // User not foundx²
         echo "Error: User not found";
     }
 }
-?>
-
+?> 
 
 <!DOCTYPE html>
 <html lang="en">
@@ -59,45 +60,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
       color: white;
     }
+
+    .loginColor{
+      background-color: red;
+    }
   </style>
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Navbar</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="index.php">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">LOGIN</a>
-    
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="signup.php">SIGNUP</a>
-          </li>
-          <li class="nav-item">
-                <a class="nav-link" href="logout.php">logout</a>
-              </li>
-        </ul>
-      </div>
-    </div>
+ 
+<?php
+
+include("Navbar.php");
+?> 
   </nav>
-
-
-
-
-  <div class="container mt-5">
-    <div class="row justify-content-center">
-      <div class="col-md-4">
-        <div class="card">
-          <div class="card-header">
-            <h3 class="text-center">Login</h3>
+ 
+  <div class="container mt-5  " >
+    <div class="row justify-content-center  ">
+      <div class="col-md-4 ">
+        <div class="card  " >
+          <div class="card-header  ">
+            <h3 class="text-center loginColor" >Login</h3>
           </div>
           <div class="card-body">
             <form action="login.php" method="post">
@@ -109,11 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <label for="password" class="form-label">Password</label> 
                 <input type="password" class="form-control" id="password" name="password" required>
               </div>
-              <button type="submit" class="btn btn-primary w-100">Login 
-
-
-
-
+              <button type="submit" class="btn btn-primary w-100">Login  
               </button>
             </form>
           </div>

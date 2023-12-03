@@ -1,0 +1,249 @@
+ .pickUp,
+ .return {
+     display: flex;
+     flex-direction: column;
+     margin-top: 10px;
+ }
+
+ .ti-car {
+
+     color: grey;
+
+ }
+
+ .VehiculeModels {
+     padding: 20px;
+     width: 80%;
+     margin: auto;
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
+
+ }
+
+ .listOfModele>p {
+     display: flex;
+     justify-content: space-between;
+     padding: 5px;
+ }
+
+ .listOfModele {
+     border: 1px solid grey;
+     display: flex;
+     flex-direction: column;
+     /* padding: 20px;    */
+     margin: 20px;
+ }
+
+
+
+ .bookButton:hover {
+
+     box-shadow: 0 10px 15px 0 rgba(255, 83, 48, .35);
+
+ }
+
+ .bookButton {
+     color: white;
+     text-align: center;
+     background-color: #ff4d30;
+     border: 2px solid #ff4d30;
+     border-radius: 0.3rem;
+     box-shadow: 0 10px 20px 0 rgba(0, 0, 0, .1);
+     cursor: pointer;
+     font-size: 1.8rem;
+     padding: 1rem 1rem;
+     transition: all .3s;
+ }
+
+ .listOfModele>img {
+     max-width: 330px;
+     height: 300px;
+
+ }
+
+ #carsvg {
+     width: 40px;
+     height: 25px;
+     color: white;
+ }
+
+ .order {
+     display: flex;
+     justify-content: start;
+     /* border:4px solid #090;   */
+     /* box-shadow: inset 0 0 0 1px #3fb23f; */
+     background-color: #ffff;
+     border-radius: 5px;
+     flex-direction: column;
+     width: 20%;
+     padding: 0px 20px;
+ }
+
+
+ .order div {
+     /* padding-left: 30px; */
+
+ }
+
+ .vehicule {
+     box-shadow: inset 0 0 0 1px #3fb23f;
+     background-color: #ffff;
+     border-radius: 5px;
+     padding: 10px;
+     width: 20%;
+ }
+
+ .Vehicule_List {
+     background-color: #ffff;
+ }
+
+
+
+ .vehicule p {
+     margin-top: 5px;
+ }
+
+ .header {
+     background-color: #f7f7f7;
+
+
+ }
+
+ .mainContainer {
+     display: flex;
+     /* background-color: yellowgreen; */
+     gap: 5rem;
+     padding: 15px 0px;
+
+ }
+
+/* 
+ .checkout_main { 
+    display: flex;
+    height: 70px;
+    justify-content: center;
+    align-items: center;
+} */
+
+.checkout_main {
+    height: 70px;
+    background-color:#f7f7f7;
+    margin-top: 10px;
+}
+.checkout{
+     
+    border:none;
+ }
+
+ .OrderDivsContainer {
+     display: flex;
+     justify-content: flex-start;
+ }
+
+
+
+ .identifier {
+     background-color: #bfbfbf;
+     height: 24px;
+     min-width: 24px;
+     border-radius: 5px 0;
+     text-align: center;
+     font-size: 17px;
+ }
+
+ .order_First_child {
+     display: flex;
+     gap: 10px;
+     align-items: center;
+
+ }
+
+ .order_h3 {
+     text-align: center;
+     margin-top: 10px;
+ }
+
+ .idenColorChange {
+     background-color: #090 !important;
+ }
+
+
+
+ .List_vehicule_Disponible {
+     display: flex;
+     width: 100%;
+     align-items: center;
+     justify-content: space-around;
+     border-bottom: 0.5px solid rgb(206, 203, 203);
+ }
+
+
+
+
+ .List_vehicule_Disponible img {
+     max-height: 180px;
+     max-width: 100%;
+ }
+
+
+ .fa-check {
+
+     color: #2c611e;
+     padding-right: 5px;
+
+     font-weight: 800;
+ }
+
+ .List_vehicule_Disponible div:nth-child(1) {
+     display: flex;
+     flex-direction: column;
+     align-items: flex-start;
+     width: 33%;
+
+ }
+
+
+
+
+ .List_vehicule_Disponible div:nth-child(2) {
+     display: flex;
+     flex-direction: column;
+     align-items: flex-start;
+     width: 45%;
+
+ }
+
+ .List_vehicule_Disponible div:nth-child(2) {
+     display: flex;
+     flex-direction: column;
+     align-items: flex-start;
+     width: 45%;
+
+ }
+
+ .tarif_vehicule {
+     font-size: 24px;
+     font-weight: 700;
+     margin: 4px 0;
+     text-align: right;
+     text-transform: uppercase;
+ }
+
+ .tarif_vehicule span {
+     font-weight: 400;
+     text-transform: none;
+ }
+
+
+ .List_vehicule_Disponible div:nth-child(3) {
+     display: flex;
+     flex-direction: column;
+     align-items: flex-end;
+     width: 23%;
+ }
+
+
+ .List_vehicule_Disponible h2 {
+     text-transform: uppercase;
+ }

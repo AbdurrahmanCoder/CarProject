@@ -1,0 +1,104 @@
+.header{
+
+    background-image: url("../img/heroes-bg.71ab9a13d73de3860763.png");
+    width: 100%;
+    height: 100%;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 41rem;
+    position: relative;
+    width: 100%;
+}
+
+
+.header_overlay{
+     
+background-color: hsla(0,0%,100%,.80);  
+  height: 100%;    position: absolute;   
+   right: 0; 
+   top: 0; 
+     width: 100%;
+}
+
+.SubsInput{
+  
+    padding: 2% !important;
+    width: 100%;
+    margin-bottom:2%;
+  } 
+  
+  .Subcription{
+  width: 100%;
+  border:none;
+  padding: 5% !important;
+  
+  }
+
+  .About_company{
+    display: flex;
+    max-width: 90rem;
+    /* background-color: red; */
+    
+}
+
+.About_company :first-child{
+    padding: 3%; 
+    
+}
+
+.company_car_list{
+ 
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  } 
+
+
+  .car_list_items i {
+
+    font-size: 30px;
+  }
+
+
+
+    .car_list_items span {
+      
+        width: 100%;
+        background-color: green;
+
+    }
+
+    .car_list_items span h4 {
+        
+        font-size: 4.6rem;
+    }
+
+
+    .About_company_descrip h2 {
+
+        font-size: 4.2rem;
+        line-height: 1.2;
+    }
+     
+    .About_company_descrip p {
+        color: #706f7b;
+        font-family: Rubik,sans-serif;
+        font-size: 1.6rem;
+        line-height: 1.5;
+        margin-bottom: 4rem;
+        margin-top: 2rem;
+    }
+
+
+    @media screen and (width < 900px){
+        
+        .About_company{
+         flex-direction: column;
+         padding: 22px;
+        }
+    
+        .About_company img{
+            width: 100%;
+        }
+    }

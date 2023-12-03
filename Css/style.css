@@ -1,0 +1,586 @@
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600&family=Caveat+Brush&family=Cormorant+Garamond:wght@300;700&family=Fraunces:wght@900&family=Montserrat:ital,wght@0,700;0,800;1,400;1,700;1,800&family=Overpass:ital,wght@0,100;0,500;1,500&family=Srisakdi&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,700&family=Rubik:wght@500&display=swap');
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body{
+
+  background-color:#f8f8f8;
+   /* height: 1000vh; */
+}
+
+
+::-webkit-scrollbar{
+  width: .8em;
+}
+
+::-webkit-scrollbar-track{
+  background: white;
+}
+
+::-webkit-scrollbar-thumb{
+  background: #ff4d30;
+  border-radius: 6px;
+}
+
+
+#utilisateur {
+  width: 214px;
+  color: grey;
+  padding-top: 12px;
+}
+
+.nav-link {
+  color: white;
+}
+
+#affortable {
+  /* font-family: "BeVietnamPro" ; */
+}
+
+
+.Nav_desktop {
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  height: 8.5rem;
+  align-items: center;
+  padding: 20px;
+  max-width: 133rem;
+  padding: 2.7rem 2rem;
+  width: 100%;
+}
+
+
+.Nav_desktop ul {
+  display: flex;
+  text-align: center;
+  gap: 2.1rem;
+}
+
+.Nav_desktop ul li {
+  list-style: none;
+  color: #010103;
+  cursor: pointer;
+  font-family: Rubik, sans-serif;
+  font-size: 1.6rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all .3s;
+
+}
+
+.Nav_desktop ul li a {
+
+  text-decoration: none;
+  color: black;
+}
+
+
+
+.Hero_butttons {
+
+font-family: Rubik,sans-serif;
+  font-size: 1.6rem;
+}
+.LinksTOsignin {
+  align-items: center;
+  display: flex;
+  font-family: Rubik, sans-serif;
+  font-size: 1.6rem;
+  font-weight: 500;
+  gap: 2.5rem;
+
+}
+
+.LinksTOsignin a:first-child {
+  font-size: 1.6rem;
+  font-family: Rubik, sans-serif;
+  font-size: 1.6rem;
+  font-weight: 550;
+  width: 57px;
+  color: #010103;
+}
+
+.Register {
+  padding: 1.5rem 3rem;
+
+}
+
+.redBlock {
+  background-color: #ff4d30;
+  box-shadow: 0 10px 15px 0 rgba(255, 83, 48, .35);
+  color: #fff;
+  transition: all .3s;
+  text-decoration: none;
+  border-radius: 3px;
+}
+
+.redBlock:hover {
+  cursor: pointer;
+  color: white;
+  box-shadow: 0 10px 20px 0 rgba(255, 83, 48, .75);
+}
+
+.Nav_desktop img {
+  width: 11.5rem;
+}
+
+
+/* hero Section css */
+
+.container {
+  margin: 0 auto !important;
+  max-width: 127rem !important;
+  padding: 0 2.5rem !important;
+}
+
+.Hero-Div {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  align-items: center;
+  position: relative;
+}
+
+#hero-bgImage {
+  position: absolute;
+  right: 0;
+
+  z-index: -2;
+
+}
+
+
+.Hero-Div div {
+
+
+  /* z-index: 3; */
+
+}
+
+.Hero-Div-Items {
+  display: flex;
+  flex-direction: column;
+
+  max-width: 50rem;
+  z-index: 3;
+  /* gap: 2rem; */
+}
+
+.Hero-Div-Items>h4 {
+  color: #010103;
+  font-family: 'Rubik', sans-serif;
+  font-size: 2.2rem;
+}
+
+.Hero-Div-Items>h1 {
+  color: #010103;
+  font-family: 'Poppins', sans-serif;
+  font-size: 5.2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 2.3rem;
+  margin-top: 1rem;
+}
+
+.Hero-Div-Items h1 span {
+
+  color: #ff4d30;
+
+}
+
+.Hero-Div-Items p {
+  color: #706f7b;
+  font-family: "Rubik", sans-serif;
+  font-size: 1.6rem;
+  line-height: 1.6;
+  margin-bottom: 4rem;
+}
+
+#mainCar {
+  /* 
+  width: 100%;
+  height: 100%; */
+  z-index: 1;
+  position: absolute;
+  right: 0;
+  width: 65%;
+  margin-top: -25rem;
+}
+
+.rentBlock {
+  padding: 1.8rem 3rem;
+font-weight: 500;
+
+}
+
+.blackBlock {
+  background-color: #010103;
+  border: 2px solid #010103;
+  border-radius: 0.3rem;
+  padding: 1.6rem 3rem;
+  transition: all .3s;
+  color: white;
+font-weight: 500;
+  text-decoration: none;
+}
+
+.blackBlock:hover {
+  background-color: white;
+  color: black;
+}
+
+.blackBlock:hover .fa-chevron-right {
+
+  color: black !important;
+
+}
+
+
+/* ***************************bookcar******************** */
+
+.bookCar
+{
+height: 44rem;
+}
+.bookCarDiv {
+  background-image: url("imgRental/bgImage.png");
+  max-width: 127rem !important;
+  height: 28rem !important; 
+  border-radius: 4px;
+  box-shadow: 0 10px 20px 0 rgba(0,0,0,.1); ;
+  border: none;
+
+}
+
+
+.bookCarDiv > h2{
+padding-left: 20px;
+padding-top: 20px; 
+
+}
+.Form_item{
+
+display: flex;
+flex-direction: column;
+}
+.bookCarMain
+{
+display: grid;
+grid-template-columns: 1fr 1fr 1fr;
+gap: 20px;
+padding: 20px;
+align-items: center;
+
+}
+
+.Form_book_btn{
+
+border: none;
+padding: 1.5rem;
+margin-top: 1.3rem;
+}
+/* 
+.Form_item :nth-child(2)
+{
+ 
+padding: 1.3rem;
+}
+ */
+
+
+
+
+
+/* **********************plan ************************* */
+
+.Plan_main_Div h3
+{
+font-family: Rubik,sans-serif;
+  font-size: 2.4rem;
+  font-weight: 500; 
+}
+
+.Plan_main_Div h2 {
+  font-family: Poppins,sans-serif;
+  font-size: 4.2rem;
+  margin: 1.3rem 0 3rem;
+}
+
+
+.plan_Flex_items
+{
+display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  margin-top: 3.7rem;
+  padding: 0 3rem;
+ 
+}
+
+
+.Plan_main_Div{
+
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.plan_Flex_items p 
+{
+color: #706f7b;
+  font-family: "Rubik",sans-serif;
+  font-size: 1.6rem;
+  line-height: 1.43;
+}
+
+.plan_Flex_items div img {
+  height: auto;
+  width: 17rem;
+}
+
+
+.plan_Flex_items div {
+padding: 1rem 6rem;
+  text-align: center;
+
+}
+
+
+.plan
+{
+margin-bottom: 10rem;
+}
+/* ***************************save******************** */
+
+
+
+
+.save{ 
+background-color: #2d2d2d;
+color:white;
+padding: 20px;
+}
+
+.save h2 {
+
+font-size: 5.2rem;
+  line-height: 1.3;
+
+}
+
+.save p {
+
+font-size: 2.4rem;
+}
+.save p span {
+
+color: #ff4d30;
+}
+
+
+
+/* ***************************SUV******************** */
+
+.suv{
+background-color: rgb(255, 255, 255);
+  background-image: url(imgRental/drift.png);
+  background-size: cover;
+  background-position: -275px 155px;
+  background-repeat: no-repeat;
+
+}
+
+.suv_Content
+{
+display: flex;
+  justify-content: space-around;
+  margin-top: 3rem;
+  width: 100%;
+}
+
+
+
+.suv_Content div h4{
+font-family: "Rubik",sans-serif;
+  font-size: 2.2rem;
+  font-weight: 500;
+  margin-bottom: 0.7rem;
+}
+.suv_Content div h2{
+font-family: "poppins",sans-serif; 
+  font-size: 4.2rem;
+  line-height: 1.2;
+  margin-bottom: 2rem;
+
+}
+.suv_Content div p{
+
+color: #706f7b;
+  font-family: Rubik,sans-serif;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  margin-bottom: 3.3rem;
+
+}
+
+.SuvLeft a {
+
+
+  padding: 1.5rem 2.5rem;
+  font-size: 1.6rem;
+  font-weight: 700;
+ max-width: 17rem;
+
+}
+.SuvLeft   {
+ margin-top: 3rem;
+color: #010103;
+  display: flex;
+  flex-direction: column;
+  max-width: 50rem;
+  text-align: left;
+
+}
+
+.SuvRight{
+display: flex;
+  flex-direction: column;
+  gap: 4.5rem;
+  max-width: 44rem;
+}
+
+.SuvLeft a .fa-chevron-right 
+{
+font-size:small;
+}
+
+
+/* ***************************Faq_Div******************** */
+.Faq{
+margin-top: 10rem;
+background-image: url(imgRental/redCar.png);
+background-position: 0% 70%;
+background-repeat: no-repeat;
+
+}
+.answer{  
+display: none;
+max-height: 20rem;
+  padding: 2.8rem 4.5rem;
+  transition: 4s ease;
+}
+
+
+.displ{
+display: block;
+transition:  2s ease;
+
+}
+.colorChange{
+background-color: #ff4d30;
+  box-shadow: 0 10px 15px 0 rgba(255, 83, 48, .35);
+  color: white;
+}
+
+
+.questions{
+align-items: center;
+  box-shadow: 0 3px 6px 0 rgba(0,0,0,.1);
+  display: flex;
+  justify-content: space-between;
+  padding: 1.8rem 4.5rem;
+  transition:  1s ease;
+  width: 100%;
+}
+
+/* 
+.questions:hover {
+  background-color: black  ;
+  display: ;
+} */
+
+.Faq_Header * 
+{
+text-align: center;
+padding-bottom: 3rem;
+}
+.Faq_Div
+
+{
+  display: flex;
+  flex-direction: column;
+
+align-items: center;
+}
+
+
+.faq_All_questions{
+  width: 50%;
+
+}
+/* ***************************Foooter******************** */
+
+footer{
+  padding: 10rem 0;
+}
+
+
+.Footer_Div{
+grid-gap: 8rem;
+  color: #010103;
+  display: grid;
+  gap: 8rem;
+  grid-template-columns: 27fr 21fr 21fr 21fr;
+  justify-content: center;
+  text-align: left; 
+}
+ 
+
+.Footer_Div ul{
+
+list-style: none;
+}
+
+.Footer_Div li:first-child {
+  font-size: 2.4rem;
+  margin-bottom: 1.5rem;
+}
+ 
+ a {
+  text-decoration: none;
+}
+ 
+
+.downarrow{
+/* display: none; */
+}
+
+
+@media screen and (width < 900px){
+  .Footer_Div{
+ 
+      grid-template-columns: 45fr 45fr ;
+  
+    }
+}
+
+
+@media screen and (width < 499px){
+  .Footer_Div{
+ 
+      grid-template-columns: 45fr 45fr ;
+  
+    }
+}

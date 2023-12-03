@@ -1,0 +1,38 @@
+
+
+
+.Form_item {
+  
+    padding: 1.3rem; 
+  }
+  
+  .Form_item > select {
+  
+  margin-top: 13px;
+  /* display: none; */
+  }
+  
+  .Form_item > select, input  {
+  padding: 1.3rem;
+  }
+  
+  .SubsInput{
+  
+    padding: 2% !important;
+    width: 100%;
+    margin-bottom:2%;
+  } 
+ 
+  .Subcription{
+  width: 100%;
+  border:none;
+  padding: 5% !important; 
+  }   
+
+  /* #preloader{
+    background: #000 url(imgRental/hero-bgImage.png) no-repeat center center ;
+    width: 100% !important;
+    height: 100vh !important;
+    position: fixed;
+    z-index: 100; 
+  } */
