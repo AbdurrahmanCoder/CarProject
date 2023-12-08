@@ -61,9 +61,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       color: white;
     }
 
-    .loginColor{
-      background-color: red;
-    }
+   .card-header {
+
+    background-color: red !important;
+   } 
+
+
   </style>
 </head>
 

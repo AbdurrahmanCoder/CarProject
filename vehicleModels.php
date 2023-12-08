@@ -1,4 +1,30 @@
-<?php include("vehicleGetData.php");
+<?php
+
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+include("connection.php");
+
+function UserLoggedIn()
+{
+    if (isset($_SESSION['pseudoData'])) {
+
+        return $_SESSION['pseudoData'];
+    }
+}
+
+ 
+
+include("vehicleGetData.php");
+
+if (!empty($_GET['CarMarque']) && !empty($_GET['CarTarif']) && !empty($_GET['CarImg'])) {
+    $_SESSION['OrderData'] = [
+        'CarMarque' => $_GET['CarMarque'],
+        'CarTarif' => $_GET['CarTarif'],
+        'CarImg' => $_GET['CarImg']
+    ];
+} 
+
 if (!empty($_GET)) {
     // if (isset($_GET['CarId'])) {
     $_SESSION['OrderData'] = [
@@ -125,10 +151,10 @@ if (isset($_SESSION['OrderData'])) {
                         if (!empty($CarMarque) && !empty($CarTarif)) { {
                                 ?>
                                 <p>
-                                    <?php echo $CarMarque; ?>
+                                    <?php  echo " <h5><b> selected Vehicule : </b> </h5>" . $CarMarque; ?>
                                 </p>
                                 <p>
-                                    <?php echo $CarTarif; ?>
+                                    <?php echo "<h5><b> Per day Tarif: </b> </h5>" .$CarTarif ."€" ;?>
                                 </p>
 
                             <?php }
@@ -172,7 +198,7 @@ if (isset($_SESSION['OrderData'])) {
                 <div class="checkout">
                     <div class="container tocheck">
                         <a class="redBlock Form_book_btn checkout_btn"
-                            href="Checkout.php?CarImages=<?php echo $CarImg ?>  ">Go
+                            href="Checkout.php?CarImages=<?php echo $CarImg ?>&CarMarqueSelected=<?php echo $CarMarque ?>   ">Go
                             to review & checkout</a>
 
                     </div>
@@ -223,9 +249,19 @@ if (isset($_SESSION['OrderData'])) {
                             </p>
 
 
-                            <a class="bookButton"
-                                href="?CarId=<?php echo $data['id']; ?>&CarMarque=<?php echo $data['marque']; ?>&CarTarif=<?php echo $data['tarif']; ?>&CarImg=<?php echo $data['photo']; ?>">Book
-                                Ride</a>
+
+                            <?php if (UserLoggedIn()) { ?>
+                                <a class="bookButton"
+                                    href="?CarId=<?php echo $data['id']; ?>&CarMarque=<?php echo $data['marque']; ?>&CarTarif=<?php echo $data['tarif']; ?>&CarImg=<?php echo $data['photo']; ?>">
+                                    Book Ride</a>
+
+
+
+                            <?php } else { ?>
+                                <a class="bookButton" href="login.php"> Book Ride</a>
+                            <?php } ?>
+
+
                         </div>
 
 
@@ -242,7 +278,22 @@ if (isset($_SESSION['OrderData'])) {
 
 </body>
 
+<script>
 
+
+
+
+</script>
 
 
 </html>
+
+<!-- 
+<a class="bookButton"
+                                href=
+        "?CarId=<?php echo $data['id']; ?>&CarMarque=<?php echo $data['marque']; ?>&CarTarif=<?php echo $data['tarif']; ?>&CarImg=<?php echo $data['photo']; ?>">
+                                 
+                                
+                                
+                                Book
+                                Ride</a> -->

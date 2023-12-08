@@ -39,8 +39,8 @@
 
         $stmt = $this->db->prepare($requete);
         $stmt->execute();
-
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
+
 
 
       }
@@ -76,18 +76,16 @@
         } else {
           return false; // Insertion failed
         }
-
       }
-
-
     }
 
     $dataInsert = new DataInsert($pdo);
-
-
     $RetriveData = $dataInsert->affiche();
 
     $CommandeData = $dataInsert->CommandeAffficher();
+
+
+
     // var_dump($CommandeData);
   
 
@@ -111,7 +109,7 @@
         <a href="?id=Dashboard" class="nav-link">Dashboard</a>
         <a href="?id=addCar" class="nav-link">addCar</a>
         <a href="?id=deleteCar" class="nav-link">deleteCar</a>
-        <a href="?id=modify" class="nav-link">modify </a>
+        <a href="?id=modify" class="nav-link">Order List </a>
 
       </div>
       <div class="content">
@@ -129,52 +127,7 @@
             Dashboard
           </h1>
 
-
-
-
-          <div class="Vehicule_List">
-
-            <div class="VehiculeModels">
-
-
-              <div class="container mt-5">
-                <h2>Car List</h2>
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th>ID</th>
-                      <th>Image</th>
-                      <th>Tarif</th>
-                      <th>Marque</th>
-                      <th>Kilometrage</th>
-                      <th>Action</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <?php
-                    foreach ($CommandeData as $ComData) { ?>
-                      <tr>
-                        <td>
-                          <?php echo $ComData['DropTime']; ?>
-
-                          <?php echo $ComData['PickUpTime']; ?>
-                        </td>
-                        <td>
-                          <?php echo $ComData['PickUpDate']; ?>
-                        </td>
-                        <td>
-                          <?php echo $ComData['City']; ?>
-                        </td>
-                        <td>
-
-
-                </div>
-                </form>
-                </td>
-                </tr>
-              <?php } ?>
-
-
+ 
 
             <?php } else if ($id === "addCar") { ?>
                 <div class="container-form">
@@ -210,6 +163,83 @@
             <?php } else if ($id === "modify") { ?>
                   <!-- /***************************************************************     MODIFY     ***************************************** */ -->
                   <h1>welcome</h1>
+
+                  <div class="Vehicule_List">
+
+<div class="VehiculeModels">
+
+
+  <div class="container mt-5">
+    <h2>Car List</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>City</th>
+          <th>PickUpDate</th>
+          <th>PickUpTime</th>
+          <th>DropDate</th>
+          <th>DropTime</th>
+          <th>nom</th>
+          <th>prenom</th>
+          <th>email</th>
+
+
+        </tr>
+      </thead>
+      <tbody>
+        <?php
+        foreach ($CommandeData as $ComData) { ?>
+          <tr>
+            <td>
+              <?php echo $ComData['id']; ?>
+
+            </td>
+
+            <td>
+              <?php echo $ComData['City']; ?>
+            </td>
+            <td>
+              <?php echo $ComData['PickUpDate']; ?>
+            </td>
+
+            <td>
+              <?php echo $ComData['PickUpTime']; ?>
+
+            </td>
+            <td>
+              <?php echo $ComData['DropDate']; ?>
+            </td>
+
+            <td>
+              <?php echo $ComData['DropTime']; ?>
+            </td>
+
+            <td>
+              <?php echo $ComData['nom']; ?>
+            </td>
+
+            
+            <td>
+              <?php echo $ComData['prenom']; ?>
+            </td>
+
+
+            <td>
+              <?php echo $ComData['email']; ?>
+            </td>
+
+
+    </div>
+    </form>
+    </td>
+    </tr>
+  <?php } ?>
+
+
+
+
+
             <?php } else { ?>
                   <!-- /***********v****************************************************  DELETE    ***************************************** */ -->
 
@@ -250,42 +280,45 @@
                                 </td>
                                 <td>
                                   <a href=' ' class='btn btn-warning'>Edit</a>
-                                  <form method="GET">
-                                    <!-- <button name="ElementToDelete" class="btn btn-danger deleteButton" data-id="<?php echo $data['id']; ?>">Delete Element</button>  -->
 
-                                    <button class="btn btn-danger deleteButton" data-id="<?php echo $data['id']; ?>">Delete
-                                      Element</button>
+                                  <div class="DeleteBlock">
+                                    <form method="GET">
+                                      <!-- <button name="ElementToDelete" class="btn btn-danger deleteButton" data-id="<?php echo $data['id']; ?>">Delete Element</button>  -->
 
-                                    <div id="afficheTesting">
+                                      <button class="btn btn-danger deleteButton" data-id="<?php echo $data['id']; ?>">Delete
+                                        Element</button>
 
-                                    </div>
-                                  </form>
+                                      <div id="afficheTesting">
+
+                                      </div>
+                                    </form>
                                 </td>
                               </tr>
                         <?php } ?>
 
-
-                          </tbody>
-                        </table>
                       </div>
 
-
-
-
-
-
+                      </tbody>
+                      </table>
                     </div>
-                  </div>
-                  <!-- #region -->
-                </div>
 
+
+
+
+
+
+                  </div>
+                </div>
+                <!-- #region -->
               </div>
 
-        <?php }
+            </div>
+
+      <?php }
   } ?>
 
 
-      <!-- <script src="script.js" async></script>: -->
+    <!-- <script src="script.js" async></script>: -->
 
 
 

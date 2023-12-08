@@ -141,6 +141,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             color: #fff;
             /* Custom text color for links */
         }
+
+        .text-center{margin-bottom: 20px !important;}
     </style>
 </head>
 

@@ -75,7 +75,7 @@ return requeteHttp;
 
 document.querySelectorAll('.deleteButton').forEach(function(button) {
   button.addEventListener('click', function(event) {
-    // event.preventDefault();
+ event.preventDefault();
     let elementId = this.getAttribute('data-id');
     let requeteHttp = getRequeteHttp();
 
@@ -95,9 +95,9 @@ document.querySelectorAll('.deleteButton').forEach(function(button) {
             
             // let afficheTesting = document.getElementById("afficheTesting");
             afficheTesting.innerHTML = responseDataDate;   
-
-            button.innerHTML = "button deleted succesfully ";
-        window.location.href=window.location.href;
+             let  DeleteBlock = document.querySelector(".DeleteBlock") 
+              console.log(DeleteBlock)
+             window.location.href=window.location.href;
             // console.log(responseDataDate)
           }
         }

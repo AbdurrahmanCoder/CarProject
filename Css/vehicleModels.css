@@ -118,19 +118,12 @@
 
  }
 
-/* 
- .checkout_main { 
-    display: flex;
-    height: 70px;
-    justify-content: center;
-    align-items: center;
-} */
-
-.checkout_main {
+ 
+/* .checkout_main {
     height: 70px;
     background-color:#f7f7f7;
-    margin-top: 10px;
-}
+ 
+} */
 .checkout{
      
     border:none;
@@ -139,6 +132,7 @@
  .OrderDivsContainer {
      display: flex;
      justify-content: flex-start;
+     gap: 20px;
  }
 
 
@@ -176,6 +170,7 @@
      align-items: center;
      justify-content: space-around;
      border-bottom: 0.5px solid rgb(206, 203, 203);
+     margin-top: 40px;
  }
 
 
@@ -247,3 +242,27 @@
  .List_vehicule_Disponible h2 {
      text-transform: uppercase;
  }
+
+
+ .checkout  {
+    position: sticky;
+     width: 100%;
+     display: flex;
+     /* display: none; */
+     justify-content: flex-end;
+     align-items: center;
+     height: 70px;
+     background-color:#f7f7f7;
+     
+    }
+    
+.tocheck{
+    display: flex;
+    justify-content: flex-end;
+ 
+}
+    .checkout_main{
+        position: sticky;
+            top:0 ;
+    
+    } 

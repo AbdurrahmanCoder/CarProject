@@ -1,26 +1,26 @@
-<?php 
+<?php
 // include("ToCheck.php");
 // session_start(); // Start a new or resume the existing session
-if (session_status() == PHP_SESSION_NONE) {
+if(session_status() == PHP_SESSION_NONE) {
   session_start();
 }
 include("connection.php");
-function isConnected(){
-    return !empty($_SESSION['membre'])? $_SESSION['membre']:false;
+function isConnected() {
+  return !empty($_SESSION['membre']) ? $_SESSION['membre'] : false;
 }
-function isAdmin(){
- 
-    if(isConnected() && $_SESSION['membre']['statut'] == 1){ 
-        return $_SESSION['membre']; 
-    }
-}  
-function UserLogged(){ 
-  if (isset($_SESSION['pseudoData'])) {
+function isAdmin() {
+
+  if(isConnected() && $_SESSION['membre']['statut'] == 1) {
+    return $_SESSION['membre'];
+  }
+}
+function UserLogged() {
+  if(isset($_SESSION['pseudoData'])) {
     // echo $_SESSION['pseudoData']; 
     // var_dump( $_SESSION['membre']);
     // echo $_SESSION['membre']; 
     return $_SESSION['pseudoData'];
-    }  
+  }
 }
 // echo  UserLogged();
 ?>
@@ -41,7 +41,8 @@ function UserLogged(){
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
   <link rel="stylesheet" href="Css/style.css">
 </head>
-<body> 
+
+<body>
   <nav class="Nav_desktop">
     <div>
 
@@ -54,85 +55,84 @@ function UserLogged(){
       <li><a href="about.php">About</a></li>
       <li><a href="vehicleModels.php">Vehicle Models</a> </li>
       <!-- <li>Models</li> -->
-      <li>Testimonials</li>
-      <li>Our Team</li>
+      <li><a href="Testimonial.php">Testimonials</a> </li>
+
       <li> Contact</li>
-    <!-- <a href="logout.php ">click me </a> -->
-       <li> <?php if(isAdmin()): ?> 
-         <a href="adminLogin.php">Admin Login</a> 
-            <?php endif; ?>  
-  </a></li>
+      <!-- <a href="logout.php ">click me </a> -->
+      <li>
+        <?php if(isAdmin()): ?>
+          <a href="adminLogin.php">Admin Login</a>
+        <?php endif; ?>
+        </a>
+      </li>
     </ul>
     <div class="LinksTOsignin">
- 
- 
-        <?php if(UserLogged()){  ?> 
-          <?php     echo $_SESSION['pseudoData'] ."<i class='fa-solid fa-angle-down downarrow'>"."</i>"  ; ?>
-          <?php }else{  ?>  
-<a href="login.php">login</a>
-
-    <?php   }   ?> 
 
 
- 
-  <div class="userSession"> 
-    <a href="logout.php "> logout   </a>
-  </div>
- 
+      <?php if(UserLogged()) { ?>
+        <?php  echo   $_SESSION['pseudoData']."<i class='fa-solid fa-angle-down downarrow'>"."</i>"; ?>
+      <?php } else { ?>
+        <a href="login.php">login</a>
 
-  <?php if(!UserLogged()){  ?> 
-    <a class='Register redBlock' href="signup.php"> Register </a>
-  
-      <?php }; ?>   
+      <?php } ?>
+
+
+
+      <div class="userSession">
+        <a href="logout.php "> logout </a>
+      </div>
+
+
+      <?php if(!UserLogged()) { ?>
+        <a class='Register redBlock' href="signup.php"> Register </a>
+
+      <?php }
+      ; ?>
 
     </div>
 
-  </nav> 
-</body> 
+  </nav>
+</body>
 
 <style>
-  .downarrow{
-    color:red;
+  .downarrow {
+    color: red;
   }
 
-.userSession{
-  display: none;
-}
-
-.userSession-show
-{
-  display: flex;
-  flex-direction: column;
-}
-
-
-@media screen and (max-width: 986px) {
-  .Nav_desktop ul {
+  .userSession {
     display: none;
   }
 
-} 
+  .userSession-show {
+    display: flex;
+    flex-direction: column;
+  }
 
 
+  @media screen and (max-width: 986px) {
+    .Nav_desktop ul {
+      display: none;
+    }
+
+  }
 </style>
 <script async>
-    let angledown = document.querySelector(".downarrow");
-    let userSession = document.querySelector(".userSession");
+  let angledown = document.querySelector(".downarrow");
+  let userSession = document.querySelector(".userSession");
 
-    if (angledown !== null) {
-      angledown.addEventListener("click", showDropdown);
+  if (angledown !== null) {
+    angledown.addEventListener("click", showDropdown);
 
-      function showDropdown() {
-        userSession.classList.toggle("userSession");
-      }
+    function showDropdown() {
+      userSession.classList.toggle("userSession");
     }
-  </script>
+  }
+</script>
 
- 
+
 
 
 
 
 
 </html>
-

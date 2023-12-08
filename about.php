@@ -56,8 +56,7 @@
                                 <h4>20</h4>
                                 <p>car types</p>
                             </span>
-                        </div>
-
+                        </div> 
                         <div class="car_list_items">
                             <i class="fa-solid fa-car-side" style="color: #ff4d30;"></i>
                             <span>
@@ -81,31 +80,15 @@
 
             </div>
 
-        </div>
-
-
-
-
-
+        </div> 
 
         </div>
-
-
-
-
+ 
     </section>
 
 
-
-
-
-
-
-
-
-
-
-
+ 
+ 
 
 
 
